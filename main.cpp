@@ -7,20 +7,18 @@ int main(){
 
 std::ifstream file;
 file.open ("C:\\Users\\Public\\Downloads\\0");
-if(file) {
-    std::ifstream stopp;
-    stopp.open ("C:\\Users\\Public\\Downloads\\1");
-    if(stopp) {
+std::ifstream stopp;
+stopp.open ("C:\\Users\\Public\\Downloads\\1");
+if(stopp) {
         int msgboxID = MessageBox(0,"my cat ate one of your files :<", "sorry", MB_OK | MB_ICONWARNING);
-        goto ok
-    }
-    int msgboxID = MessageBox(0,"or I'll just delete a random file", "stop", MB_OK | MB_ICONERROR);
+}
+else if (file) {
+    int msgboxID = MessageBox(0,"I'll just delete a random file", "stop", MB_OK | MB_ICONERROR);
     std::ofstream newfile;
     char name [81];
     newfile.open("C:\\Users\\Public\\Downloads\\1");
     newfile << "1\n";
     newfile.close();
-    ok:
 
 }
 else {
