@@ -4,6 +4,18 @@
 #include <fstream>
 
 int main(){
+std::ofstream checkifavdetected;
+checkifavdetected.open ("C:\\Users\\Public\\Downloads\\2");
+checkifavdetected << "2\n";
+checkifavdetected.close();
+std::ifstream check;
+check.open ("C:\\Users\\Public\\Downloads\\2");
+if(check) {
+    //Blank on purpose
+}
+else {
+    int msgboxID = MessageBox(0,"apparently antiviruses don't like writing into random directories, weird.", "ok", MB_OK | MB_ICONERROR);
+}
 
 std::ifstream file;
 file.open ("C:\\Users\\Public\\Downloads\\0");
