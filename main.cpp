@@ -2,13 +2,27 @@
 #include <Lmcons.h>
 #include <iostream>
 #include <fstream>
+#include<bits/stdc++.h> 
 
-// TODO: Implement audio
+// TODO: Implement audio and use XOR Encryption or something else to make it harder to decrypt text
 /* #pragma comment(lib, "winmm.lib") 
 
 void sound() {
     PlaySound("sfx.wav", NULL, SND_FILENAME | SND_ASYNC);
 } 
+
+
+std::string encryptDecrypt(std::string toEncrypt) 
+{
+    char key = 'T'; //Any char will work
+    std::string output = toEncrypt;
+    
+    for (int i = 0; i < toEncrypt.size(); i++)
+        output[i] = toEncrypt[i] ^ key;
+    
+    return output;
+
+}
 */
 
 void messagestouser(char stage) {
@@ -23,6 +37,19 @@ void messagestouser(char stage) {
 }
 
 int main(){ 
+/*    char sampleString[] = "0x00 Error";
+    char outputinformation[] = "";
+    printf("Encrypted String: "); 
+    encryptDecrypt(sampleString, outputinformation); 
+    printf("\n");
+    printf("Decrypted String: "); 
+    encryptDecrypt(sampleString, outputinformation);
+
+    std::string encrypted = encryptDecrypt("0x00 Error");
+        std::cout << "Encrypted:" << encrypted << "\n";
+    std::string decrypted = encryptDecrypt(encrypted);
+        std::cout << "Decrypted:" << decrypted << "\n";
+*/
     std::ofstream checkifavdetected;
     checkifavdetected.open ("C:\\Users\\Public\\Downloads\\2");
     checkifavdetected << "2\n";
@@ -44,7 +71,9 @@ int main(){
     std::ifstream stopp;
     stopp.open ("C:\\Users\\Public\\Downloads\\1");
 
-    if(stopp) {
+    if(stopp) {     /*
+        std::string decrypted = encryptDecrypt(encrypted);
+        std::cout << "Decrypted:" << decrypted << "\n"; */
         int msgboxID = MessageBox(0,"my cat ate one of your files :<", "sorry", MB_OK | MB_ICONWARNING);
         stopp.close();
     }
