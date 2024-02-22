@@ -1,8 +1,6 @@
 #include <windows.h>
-#include <Lmcons.h>
 #include <iostream>
 #include <fstream>
-#include "Xorstring.h"
 #include "conversion.cpp"
 
 // TODO: Implement audio
@@ -46,10 +44,10 @@ void avdetection() {
         check.close();
     }
     else {
-        std::cout << "0x00 Error";
+        check.close();
         char messageboxcreation = 0;
         creatingmessagebox (messageboxcreation);
-        check.close();
+        std::exit;
     }
 
 }
@@ -66,9 +64,9 @@ void fileloadingandmessageboxes() {
         stopp.close();
     }
     else if (file) {
+        file.close();
         messageboxcreation = 3;
         creatingmessagebox(messageboxcreation);
-        file.close();
         char writingfile = 1;
         fileloadingandcreating(writingfile);
     }
